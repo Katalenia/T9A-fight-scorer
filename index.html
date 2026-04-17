@@ -4,7 +4,7 @@
 <style>
 .container {
   display: grid;
-  grid-template-columns: 20% 40% 40%;
+  grid-template-columns: 24% 38% 38%;
   grid-auto-rows: 120px;
   padding: 0px;
 }
@@ -34,50 +34,50 @@ div {
 
 <div class="container">
   <div><button id="reset">Reset</button></div>
-  <div>- Me +</div>
-  <div>- Opponent +</div>
+  <div>Me</div>
+  <div>Opponent</div>
 
   <div>Charges</div>
-  <div id="my_counter_1">0</div>
-  <div id="opp_counter_1">0</div>
+  <div id="my_counter_1">- &nbsp;&nbsp;&nbsp;<toto id="my_counter_1#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
+  <div id="opp_counter_1">- &nbsp;&nbsp;&nbsp;<toto id="opp_counter_1#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
 
   <div>Banners</div>
-  <div id="my_counter_2">0</div>
-  <div id="opp_counter_2">0</div>
+  <div id="my_counter_2">- &nbsp;&nbsp;&nbsp;<toto id="my_counter_2#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
+  <div id="opp_counter_2">- &nbsp;&nbsp;&nbsp;<toto id="opp_counter_2#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
 
   <div>Ranks</div>
-  <div id="my_counter_3">0</div>
-  <div id="opp_counter_3">0</div>
+  <div id="my_counter_3">- &nbsp;&nbsp;&nbsp;<toto id="my_counter_3#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
+  <div id="opp_counter_3">- &nbsp;&nbsp;&nbsp;<toto id="opp_counter_3#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
 
   <div>Wounds</div>
-  <div id="my_counter_4">0</div>
-  <div id="opp_counter_4">0</div>
+  <div id="my_counter_4">- &nbsp;&nbsp;&nbsp;<toto id="my_counter_4#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
+  <div id="opp_counter_4">- &nbsp;&nbsp;&nbsp;<toto id="opp_counter_4#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
 
   <div>Other</div>
-  <div id="my_counter_5">0</div>
-  <div id="opp_counter_5">0</div>
+  <div id="my_counter_5">- &nbsp;&nbsp;&nbsp;<toto id="my_counter_5#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
+  <div id="opp_counter_5">- &nbsp;&nbsp;&nbsp;<toto id="opp_counter_5#">0</toto>&nbsp;&nbsp;&nbsp; +</div>
 
   <div><b>Total</b></div>
   <div id="my_total"><b>0</b></div>
   <div id="opp_total"><b>0</b></div>
 </div>
 
-<h1 id="final_score">Final score: 0</h3>
+<h1 id="final_score" style="font-size: 60px;">Final score: 0</h1>
 
 
   <script>
 
     function update_totals() {
-      my_score = 0
+      my_score = 0;
       for (i=1; i<=5; i++) {
         name = "my_counter_" + i;
-        my_score += parseInt(document.getElementById(name).innerHTML, 10);
+        my_score += parseInt(document.getElementById(name+"#").innerHTML, 10);
       }
 
-      opp_score = 0
+      opp_score = 0;
       for (i=1; i<=5; i++) {
         name = "opp_counter_" + i;
-        opp_score += parseInt(document.getElementById(name).innerHTML, 10);
+        opp_score += parseInt(document.getElementById(name+"#").innerHTML, 10);
       }
 
       document.getElementById("my_total").innerHTML = "<b>" + my_score + "</b>";
@@ -90,13 +90,13 @@ div {
     function reset(e) {
       for (i=1; i<=5; i++) {
         name = "my_counter_" + i;
-        document.getElementById(name).innerHTML = "0";
+        document.getElementById(name+"#").innerHTML = "0";
       }
 
       opp_score = 0
       for (i=1; i<=5; i++) {
         name = "opp_counter_" + i;
-        document.getElementById(name).innerHTML = "0";
+        document.getElementById(name+"#").innerHTML = "0";
       }
 
       update_totals();
@@ -111,15 +111,15 @@ div {
         // Calculate the center of the div
         const centerX = rect.left + rect.width / 2;
 
-        x = parseInt(document.getElementById(name).innerHTML, 10);
+        x = parseInt(document.getElementById(name+"#").innerHTML, 10);
 
         // Determine if click was on left or right
         if (clickX < centerX) {
           // Handle left side logic
-          document.getElementById(name).innerHTML = (x-1).toString();
+          document.getElementById(name+"#").innerHTML = (x-1).toString();
         } else {
           // Handle right side logic
-          document.getElementById(name).innerHTML = (x+1).toString();
+          document.getElementById(name+"#").innerHTML = (x+1).toString();
         }
 
         update_totals();
