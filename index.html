@@ -4,14 +4,15 @@
 <style>
 .container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
+  grid-template-columns: 20% 40% 40%;
+  grid-auto-rows: 120px;
+  padding: 0px;
 }
 div {
   background-color: #f1f1f1;
   border: 1px solid black;
-  padding: 10px;
-  font-size: 30px;
+  padding: 30px;
+  font-size: 60px;
   text-align: center;
   -webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -22,7 +23,7 @@ div {
 }
 
 .container button {
-  font-size: 25px;
+  font-size: 55px;
   text-align: center;
 }
 </style>
@@ -33,8 +34,8 @@ div {
 
 <div class="container">
   <div><button id="reset">Reset</button></div>
-  <div>Me</div>
-  <div>Opponent</div>
+  <div>- Me +</div>
+  <div>- Opponent +</div>
 
   <div>Charges</div>
   <div id="my_counter_1">0</div>
